@@ -1,0 +1,8 @@
+# 1a1:
+    Here I basically change all single quotes to double quotes(except for those that occur in words like "don't"), and then try to revert as many incorrect double quotes to single quotes. To do this, I check if there is a white space after or before the single quote. If there is then I change it, otherwise it remains. Now, if a sentence is of the form 'I/You said/say *something*', I convert the double quotes back to single quotes, because someone is clearly quoting themselves/someone else inside another quote. All other regexes are there to handle edge cases.
+
+# 1a2:
+    If a terminator character does not start with G/K/C{because someones name is present in the passage} and it is followed by some number of white spaces and then a capital letter, I mark it a terminator. If I mark a terminator with Mr before it, I revert it.
+
+#2:
+    Here I use a simple logistic regression model to classify terminators. From the tagged data set, I use a regex to find the feature vectors of all non-terminating terminator characters(.,?,!,]). For the actual terminators, I remove the tags(</s> and <s>) and then find the feature vectors. The feature vector is just a Bag-of-Characters around the context of the punctuator. The context size is a hyperparameter set to 5 characters on both sides of the punctuator.
