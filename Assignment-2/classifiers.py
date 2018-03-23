@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import sys
 import numpy as np
-from sklearn.naive_bayes import GaussianNB
+from sklearn.naive_bayes import GaussianNB, MultinomialNB
 from sklearn.linear_model import LogisticRegression
 from sklearn.svm import LinearSVC
 from sklearn.neural_network import MLPClassifier
@@ -26,4 +26,7 @@ def NN(X_train, Y_train, X_test, Y_test):
     model.fit(X_train, Y_train)
     return model.score(X_test, Y_test)
 
-# TODO: Write model for RNN
+def nultinomialNB(X_train, Y_train, X_test, Y_test):
+    model = MultinomialNB()
+    model.fit(X_train, Y_train)
+    return model.score(X_test, Y_test)

@@ -1,9 +1,13 @@
 #!/usr/bin/env python3
 import numpy as np
 import gensim
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.feature_extraction.text import TfidfVectorizer
+from nltk.tokenize import word_tokenize
+from nltk.corpus import stopwords
 
 def loadGlove():
-    f = open("")
+    f = open("GloVe/glove.6B.300d.txt")
     model = {}
     for l in f:
         splitLine = l.split()
@@ -14,6 +18,6 @@ def loadGlove():
     return model
 
 def loadWord2Vec():
-    path = ""
-    model = gensim.models.Word2Vec.load_word2vec_format(path, binary=True)
+    path = "Word2Vec/GoogleNews-vectors-negative300-SLIM.bin"
+    model = gensim.models.KeyedVectors.load_word2vec_format(path, binary=True)
     return model

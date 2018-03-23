@@ -1,0 +1,58 @@
+1. Unweighted word2vec
+SVM = 0.843
+Naive Bayes = 0.694
+Logistic Regression = 0.803
+NN = 85.8
+
+2. Unweighted glove
+SVM = 0.836
+Naive Bayes = 0.680
+Logistic Regression = 0.833
+NN = 0.835
+
+3. BBoW
+SVM = 0.848
+Naive Bayes = 0.829
+Logistic Regression = 0.860
+NN = 0.878
+
+4. TF
+SVM = 0.813
+Naive Bayes = 0.826
+Logistic Regression = 0.728
+NN = 0.821
+
+5. Tf-Idf
+SVM = 0.856
+Naive Bayes = 0.842
+Logistic Regression = 0.810
+NN = 0.851
+
+6. Weighted word2vec
+SVM = 0.711
+Naive Bayes = 0.587
+Logistic Regression = 0.691
+NN = 0.720
+
+7. Weighted glove
+SVM = 0.703
+Naive Bayes = 0.613
+Logistic Regression = 0.703
+NN = 0.636
+
+8. Paragraph Vectors
+SVM = 0.581 
+Naive Bayes = 0.641
+Logistic Regression = 0.657
+NN = 0.701
+
+9. LSTM
+Accuracy = 0.860
+
+We notice that we get the best accuracy with RNN, and in most approaches Fully connected NN outperforms other classifiers. Also we notice that Binary Bag of Words performs very well, despite being the most simple word representation. In some cases NN's are not performing well because I stopped training early in interest of time(For example, in the case of BBoW, the input size is enormous, even though most of it is sparse, training still takes a unreasonably long time. Yet NN's have performed well in the cases where training was not complete).
+
+Also the LSTM performed extremely well, even though its training time was the longest.
+
+Also, we used Gaussian NB in the case of word2vec and glove, since MultinomialNB does not accept negative values. In the case of BBow, tf and tfidf, we used MultinomialNB.
+
+Paragraph vectors had very poor accuracy partly since we require more training time. It is also possible that the paragraph vectors are not very linearly separable, which could be one reason why linear boundary algorithms like SVM did very poorly, and NN did better.
