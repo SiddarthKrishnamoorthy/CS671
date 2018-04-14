@@ -6,3 +6,4 @@
 
 #2:
     Here I use a simple logistic regression model to classify terminators. From the tagged data set, I use a regex to find the feature vectors of all non-terminating terminator characters(.,?,!,]). For the actual terminators, I remove the tags(</s> and <s>) and then find the feature vectors. The feature vector is just a Bag-of-Characters around the context of the punctuator. The context size is a hyperparameter set to 5 characters on both sides of the punctuator.
+I get an accuracy of 98.5% with the model.

@@ -17,7 +17,6 @@ from keras.models import Sequential
 from keras.layers import Dense, Embedding, LSTM
 from keras.preprocessing import sequence
 
-print('yesss')
 if(sys.argv[1] == 'glove'):
     glove = loadGlove()
     f = open('data.pkl', 'rb')
