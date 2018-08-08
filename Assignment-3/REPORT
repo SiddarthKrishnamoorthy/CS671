@@ -1,0 +1,7 @@
+Assignment-3
+K. Siddarth
+150312
+
+For the feature vector, we use the same vector as the one defined in the example in the class. Basically, the top of the stack, first two elements of the buffer, left and right dependency of the top of the stack, and the left and right dependency of the first buffer element. Each of these contains word embedding(Glove) and POS tag. We do not use dependency relation in out feature vector. We use scikit learn's MLP classifier to choose the next transition. 
+
+Using this, we get an accuracy of 78.72
